@@ -10,10 +10,10 @@ from kivy.uix.recycleview import RecycleView
 from kivy.uix.popup import Popup
 from kivy.uix.label import Label
 from kivy.uix.image import Image
-from kivy.graphics import *
 
 try:
     from bigdataW4 import ranking
+    import imgedit
 except:
     class MainApp(App):
         def build(self):

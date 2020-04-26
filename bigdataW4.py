@@ -11,9 +11,7 @@ except:
 bs=BeautifulSoup(html_doc,'html.parser')
 top10shooter=[]
 playerPoints=[]
-playerimg=['img/1cady.jpg','img/4nick.jpg','img/2jameel.jpg',
-           'img/3ricardo.jpg','img/5brandon.jpg','img/10troy.jpg',
-           'img/8song.jpg','img/9heo.jpg','img/7leon.jpg','img/6chinanu.jpg']
+
 playerDic=[]
 def getTop10():
     td_list=bs.find_all('td',class_='l39')
@@ -50,6 +48,7 @@ def makePlayerDic(player,points,img,num=10):
 def rank(Dic):
     return sorted(Dic, key=(lambda x:x[1]), reverse=True)
 getTop10()
+playerimg=['img/'+name+'edit.jpg' for name in top10shooter]
 getTop10PlayerPoints()
 playerDic=makePlayerDic(top10shooter,playerPoints,playerimg)
 ranking=rank(playerDic)
