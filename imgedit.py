@@ -24,10 +24,8 @@ def getprofiletext(p_i):
 def drawtext(player, msg):
     image = Image.open('img/'+player+'.jpg')
     draw = ImageDraw.Draw(image)
-    if image.size[0]<150:
-        font = ImageFont.truetype('NanumGothic.ttf', size=8)
-    else:
-        font = ImageFont.truetype('NanumGothic.ttf', size=16)
+    font = ImageFont.truetype('NanumGothic.ttf', size=16)
+    
     (x, y) = (10, 10)
     message = msg
     outline='rgb(255, 255, 255)'
