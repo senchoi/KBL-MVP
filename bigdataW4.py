@@ -42,7 +42,8 @@ def getTop10PlayerPoints():
     '''
 
 def makePlayerDic(player,points,img,num=10):
-    templist=[sum(points[i])for i in range(num)]
+    templist=[sum(points[i])-0.5*points[i][0]+
+              points[i][2]*2+points[i][4]+points[i][6] for i in range(num)]
     return list(zip(player,templist,img))
 
 def rank(Dic):
