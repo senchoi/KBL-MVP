@@ -15,7 +15,7 @@ def getprofiletext(p_i):
     htmldoc=urlopen(baseurl.format(quote(top10shooter[p_i])))
     bsprofile=BeautifulSoup(htmldoc,'html.parser')
     bslist=bsprofile.find('dl',class_='detail_profile')
-    for i in range(2):
+    for i in range(3):
         list1.append(bslist.findChildren('dt')[i].text)
         list2.append(bslist.findChildren('dd')[i+1].text)
     plist=list(zip(list1,list2))
@@ -41,4 +41,9 @@ for i in range(10):
     getprofiletext(i)
 for i,name in enumerate(top10shooter):
     drawtext(name,playerplist[i][0][0]+':'+playerplist[i][0][1]+'\n'+
-             playerplist[i][1][0]+':'+playerplist[i][1][1])
+             playerplist[i][1][0]+':'+playerplist[i][1][1][:17] + '\n'+
+             playerplist[i][1][1][17:35]+('\n'if playerplist[i][1][1][17:35] else '')+
+             playerplist[i][2][0]+':'+playerplist[i][2][1][:15] +'\n'+
+             playerplist[i][2][1][15:33]+('\n'if playerplist[i][2][1][15:33] else '')+
+             playerplist[i][2][1][33:51]+('\n'if playerplist[i][2][1][33:51] else '')+
+             playerplist[i][2][1][51:69]+('\n'if playerplist[i][2][1][51:69] else ''))
